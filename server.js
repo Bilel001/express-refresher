@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const cors = require('cors');
 
 const express = require('express');
@@ -5,6 +7,7 @@ const express = require('express');
 const productsRouter = require('./products');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 
 app.use(cors({
@@ -37,6 +40,6 @@ app.post('/message', (req, res) => {
     res.json({message: 'Thank you for your message'});
 })
 
-app.listen(3000, () => {
-    console.log('The server is running on Port 3000');
+app.listen(PORT, () => {
+    console.log(`The server is running on Port ${PORT}`);
 });
